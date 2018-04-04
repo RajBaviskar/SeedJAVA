@@ -5,7 +5,6 @@ public class MyDate {
 	private long month;
 	private long year;
 
-
 	public MyDate() {
 		this.day = 0;
 		this.month = 0;
@@ -19,6 +18,7 @@ public class MyDate {
 	}
 
 	public void displayDate() {
+		System.out.println("***************");
 		System.out.println(day + "/" + month + "/" + year);
 	}
 

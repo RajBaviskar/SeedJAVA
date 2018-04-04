@@ -1,17 +1,24 @@
 package com.company;
+import com.company.MyDate;
 
 public class Employee {
+
+	private static long totalEmployee = 0;
+	MyDate joiningDate;
+
 	private long employeeId;
 	private String employeeName = "";
-	private double basicSalary;
+	protected double basicSalary;
 	private double HRA;
 	private double medical;
 	private double PF;
 	private double PT;
 	private double grossSalary;
 	private double netSalary;
-	
+
 	public Employee() {
+		totalEmployee++;
+		joiningDate = new MyDate();
 		this.employeeId = 0;
 		this.employeeName = "";
 		this.basicSalary = 0;
@@ -24,7 +31,10 @@ public class Employee {
 	}
 
 	public Employee (final long employeeId, final String employeeName,
-		final double basicSalary, final double medical) {
+		final double basicSalary, final double medical,final int day,
+		final int month, final int year) {
+		totalEmployee++;
+		joiningDate = new MyDate(day, month, year);
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.basicSalary = basicSalary;
@@ -34,6 +44,10 @@ public class Employee {
 		this.PT = 200;
 		this.grossSalary = basicSalary + HRA + medical;
 		this.netSalary = grossSalary - (PT + PF);
+	}
+
+	public static long totalEmployee() {
+		return totalEmployee;
 	}
 
 	public void setEmployeeId (final long employeeId) {
@@ -85,7 +99,8 @@ public class Employee {
 		return this.grossSalary;
 	}
 
-	public String toString() { 
+	public String toString() {
+		joiningDate.displayDate();
 		return "EmployeeId = " + employeeId + "\n" 
 		+ "Employee Name = " + employeeName + "\n"
 		+ "Basic Salary = " + basicSalary + "\n"
