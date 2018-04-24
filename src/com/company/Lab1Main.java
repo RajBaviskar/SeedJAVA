@@ -7,3 +7,6 @@ public static void main(String[] args) {
 		birthDay.displayDate();
 	}
 }
+
+
+$('#collection_activities_list_component_id').removeClass('hidden-class');
